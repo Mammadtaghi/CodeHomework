@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    border: 1px solid black;
+}
+
+#bgimg{
+    
+    width: 100%;
+    height: 100vh;
+
+    filter: brightness(90%);
+    background-image: url(https://preview.colorlib.com/theme/meal/images/slider-1.jpg);
+    background-attachment: fixed;
+
+}
+
+#middle{
+
+    width: 50%;
+    height: 100vh;
+
+    margin: auto;
+    text-align: center;
+
+}
+
+.text{
+    filter: brightness(100%);
+}
+
+#Mdiv{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 70px;
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 17%;
+    border: 0px;
+}
+
+#M{
+    font-family: 'Open Sans', sans-serif;
+    padding: 5px 10px;
+    border: 3px solid white;
+    font-size: 35px;
+    line-height: 50%;
+    text-decoration-color: transparent;
+    color: rgb(216, 216, 216);
+
+}
+
+#welcomediv{
+    /* you look good */
+    border: 0px;
+    margin-bottom: 40px;
+}
+
+#welcome{
+
+    font-size: 60px;
+    font-weight: 700;
+    border: 0px;
+}
+
+#tableanhor{
+    text-decoration-color: transparent;
+}
+
+#tablediv{
+    margin: auto;
+    width: fit-content;
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: 2px solid black;
+    
+}
+
+#tablediv:hover{
+    background-color: rgba(0, 0, 0, 0.829);
+    transition: 0.3s;
+}
+
+#tabletext{
+    font-family: 'Open Sans', sans-serif;
+    text-decoration-color: transparent;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: white;
+    border: 0px;
+    
+}
