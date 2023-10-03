@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#DVD{
+    width: 245px;
+    height: 133px;
+    background-color: cyan;
+    background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freepnglogos.com%2Fuploads%2Fdvd-png%2Fdvd-svg-png-icon-download-onlinewebfontsm-25.png&f=1&nofb=1&ipt=1692c4cd9fc8fff13ab2c65d844942314870fdab5496f2ad6fb287cc6197abdb&ipo=images);
+    background-size: cover;
+
+    animation-name: Bouncing;
+    animation-duration: 30s;
+    animation-timing-function: cubic-bezier(1, 1, 1, 1);
+    animation-iteration-count: infinite;
+    /* animation-direction: alternate; */
+
+}
+
+@keyframes Bouncing{
+    0%{
+        transform: translate(0vw, 0vh);
+        background-color: cyan;
+    }
+    9%{
+        transform: translate(60vw , 87vh);
+        background-color: chartreuse;
+    }
+    18%{
+        transform: translate(87vw, 40vh);
+        background-color: gold;
+    }
+    27%{
+        transform: translate(30vw ,0vh);
+        background-color: crimson;
+    }
+    36%{
+        transform: translate(0vw, 60vh);
+        background-color: blue;
+    }
+    45%{
+        transform: translate(30vw, 87vh);
+        background-color: darkcyan;
+    }
+    54%{
+        transform: translate(87vw ,30vh);
+        background-color: blueviolet;
+    }
+    63%{
+        transform: translate(60vw ,0vh);
+        background-color: azure;
+    }
+    72%{
+        transform: translate(0vw ,30vh);
+        background-color: cadetblue;
+    }
+    81%{
+        transform: translate(80vw ,87vh);
+        background-color: yellowgreen;
+    }
+    90%{
+        transform: translate(87vw ,75vh);
+        background-color: coral;
+    }
+    100%{
+        transform: translate(0vw ,0vh);
+        background-color: darkgoldenrod;
+    }
+}
