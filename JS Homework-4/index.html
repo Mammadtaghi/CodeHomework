@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class_and_Object</title>
+</head>
+<body>
+
+    <script>
+
+        class Books{
+            constructor(name, author, releaseDate, price){
+                this.name = name
+                this.author = author
+                this.releaseDate = releaseDate
+                this.price = price
+            }
+
+            takePrice(discountPercent){
+                let discountPrice = ( +this.price.replace("azn","") *(100-discountPercent))/100 + " azn"
+                console.log("Book Name: " + this.name,"\n\nThe Author: " + this.author,"\n\nRelease Date: " + this.releaseDate,"\n\nPrice: " + this.price,"\n\nPrice after discount: " + discountPrice);
+            }
+        }
+
+        const book1 = new Books("The Book Woman of Troublesome Creek", " Kim Michele Richardson", 2022, "20 azn")
+        const book2 = new Books("The Very Secret Society of Irregular Witches", " Sangu Mandanna", 2022, "15 azn")
+
+        book1.takePrice(20)
+
+        book2.takePrice(15)
+
+    </script>
+</body>
+</html>
