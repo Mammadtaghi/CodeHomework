@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        table,th,td{
+            border: 1px solid black;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Form start -->
+    <form action="" id="form">
+        <label for="fName">Firstname</label><br>
+        <input type="text" id="fName"><br>
+        <label for="lName">Lastname</label><br>
+        <input type="text" id="lName"><br>
+        <label for="age">Age</label><br>
+        <input type="number" id="age" min="3" max="100"><br>
+        <label for="radio">isMarried</label><br>
+        <input type="radio" id="no" name="isMarried" value="No"><label for="isMarried">No</label>
+        <input type="radio" id="yes" name="isMarried" value="Yes"><label for="isMarried">Yes</label>
+        <input id="add" type="submit">
+    </form>
+    <!-- Form end -->
+
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>isMarried</th>
+            </tr>
+        </thead>
+        <tbody id="tBody"></tbody>
+    </table>
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>
