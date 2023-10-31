@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #toDoDiv{
+            min-width: 220px;
+            margin-top: 10px;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="ToDo">
+        <input type="text" id="input">
+        <input type="button" value="Add" id="addBtn">
+    </form>
+
+    <div id="toDoDiv"></div>
+
+    <input type="button" value="Clear" id="clearBtn">
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>
