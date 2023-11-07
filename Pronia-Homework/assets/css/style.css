@@ -235,6 +235,7 @@ header .wishlist .wishlistProductContainer {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  overflow: auto;
 }
 header .wishlist .wishlistProductContainer .wishlistProduct {
   width: 100%;
@@ -270,6 +271,10 @@ header .wishlist .wishlistProductContainer .wishlistProduct .wishlistProductText
 }
 header .wishlist .wishlistProductContainer .wishlistProduct .wishlistProductTextBox .headLine .closeBtn {
   cursor: pointer;
+}
+header .wishlist .wishlistProductContainer .wishlistProduct .wishlistProductTextBox .headLine .closeBtn:hover {
+  color: rgba(135, 232, 16, 0.9);
+  transition: 0.3s;
 }
 header .wishlist .wishlistProductContainer .wishlistLine {
   border-bottom: 1px solid grey;
@@ -989,6 +994,7 @@ header .wishlist .wishlistProductContainer {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  overflow: auto;
 }
 header .wishlist .wishlistProductContainer .wishlistProduct {
   width: 100%;
@@ -1024,6 +1030,10 @@ header .wishlist .wishlistProductContainer .wishlistProduct .wishlistProductText
 }
 header .wishlist .wishlistProductContainer .wishlistProduct .wishlistProductTextBox .headLine .closeBtn {
   cursor: pointer;
+}
+header .wishlist .wishlistProductContainer .wishlistProduct .wishlistProductTextBox .headLine .closeBtn:hover {
+  color: rgba(135, 232, 16, 0.9);
+  transition: 0.3s;
 }
 header .wishlist .wishlistProductContainer .wishlistLine {
   border-bottom: 1px solid grey;

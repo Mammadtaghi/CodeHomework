@@ -206,101 +206,135 @@ function changeImgInTime() {
 
 // changeImgInTime()
 
-// Wishlist
-let Data = []
 
-// All Products
-const products = document.querySelectorAll('.product')
-const productsImg = document.querySelectorAll('.productImg')
-const productsName = document.querySelectorAll('.productName')
-const productsPrice = document.querySelectorAll('.productPrice')
+// Fetch Data
+const productItemsDiv = document.querySelector('.productItemsDiv')
 
-let id = 1
+async function getDataFromAPI() {
 
-// LocalJSON
-function CreateLocalJSON() {
-    for (const key in products) {
-        if (key === 'item') {
-            return
-        }
+    // Fetch Data from API
+    let response = await axios.get('http://localhost:3000/pronia')
+    Data = response.data
 
-        const product = {}
+    productItemsDiv.innerHTML = ''
 
-        product.id = id
-        product.img = productsImg[key].getAttribute('src')
-        product.name = productsName[key].textContent
-        product.price = +productsPrice[key].textContent.replace('$', '')
-        product.count = 0
+    // Get product data in place
+    Data.forEach(element => {
+        let product = document.createElement('div')
+        product.innerHTML = `<div class="product" onclick="AddToWishlist(${element.id})">
+            <div class="productImgDiv">
+                <img src=${element.img} alt="" class="productImg">
+            </div>
+            <h3 class="productName">${element.name}</h3>
+            <span class="productPrice">$${element.price}</span>
+        </div>`
 
-        id++
-
-        Data.push(product)
-        localStorage.setItem('products', JSON.stringify(Data))
-    }
+        // Then send them to HTML in style
+        productItemsDiv.append(product)
+    })
 }
+getDataFromAPI()
 
-CreateLocalJSON()
 
-const wishlist = []
 
-// Wishlist Container
 const wishlistProductContainer = document.querySelector('.wishlistProductContainer')
+// Adding clicked element to wishlist
 
-// Add to wishlist
-function AddToWishlist(e) {
+async function AddToWishlist(postId) {
 
-    let count = 1
 
-    let wishlistProduct = document.createElement('div')
-    wishlistProduct.classList.add('wishlistProduct')
+    let response = await axios.get(`http://localhost:3000/pronia/${postId}`)
 
-    let itemImg = document.createElement('img')
-    itemImg.classList.add('wishlistProductImg')
-    itemImg.setAttribute('src', e.children[0].children[0].src)
+    let product = response.data
 
-    let textBox = document.createElement('div')
-    textBox.classList.add('wishlistProductTextBox')
+    // if not added to basket yet
+    if (product.count === 0) {
+        axios.post(`http://localhost:3000/basket/`, product)
+    }
 
-    let headLine = document.createElement('div')
-    headLine.classList.add('headLine')
-
-    let itemName = document.createElement('h3')
-    itemName.classList.add('wishlistProductName')
-    itemName.innerText = e.children[1].textContent
-
-    let closeBtn = document.createElement('span')
-    closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
-    closeBtn.classList.add('closeBtn')
-    closeBtn.setAttribute('onclick', 'RemoveItem(this)')
-
-    let priceBox = document.createElement('span')
-    priceBox.innerText = `${count} x ${e.children[2].innerText}`
-
-    // Get everything in place
-    headLine.append(itemName, closeBtn)
-    textBox.append(headLine, priceBox)
-    wishlistProduct.append(itemImg, textBox)
-    wishlistProductContainer.append(wishlistProduct)
-
-    wishlist.push(wishlistProduct)
-    localStorage.setItem('Item',(wishlist))
+    // If added to basket just increase Count in every click
+    product.count++
+    axios.put(`http://localhost:3000/pronia/${postId}`, product)
+    axios.put(`http://localhost:3000/basket/${postId}`, product)
 
 }
 
+// Create basket element and add it to HTMl
+async function AddToBasket() {
 
-// function getWishlistBack() {
-//     let items = JSON.parse(localStorage.getItem('Item'))
-//     console.log(typeof items);
-//     // items.forEach(item => {
-//     //     wishlistProductContainer.append(item)
-//     // });
-// }
+    // Fetch Data
+    let response = await axios.get(`http://localhost:3000/basket`)
 
-// getWishlistBack()
+    let products = response.data
 
-// whislist Close Button function
-function RemoveItem(e) {
-    e.parentElement.parentElement.parentElement.remove()
+    // Reset basket before adding data back
+    wishlistProductContainer.innerHTML = ''
+    
+    products.forEach(element => {
+        
+        // Get clicked product to wishlist
+        let item = document.createElement('div')
+        item.classList.add('wishlistProduct')
+    
+        item.innerHTML = `<img class="wishlistProductImg" src=${element.img}>    
+                <div class="wishlistProductTextBox">
+                    <div class="headLine">
+                        <h3 class="wishlistProductName">${element.name}</h3>
+                        <i class="fa-solid fa-xmark closeBtn" onclick="RemoveProduct(${element.id})"></i>
+                    </div>
+                    <span class="">${element.count} x ${element.price}</span>
+                </div>`
+    
+        wishlistProductContainer.append(item)
+    });
+
 }
+AddToBasket()
+
+// Subtotal
+const subTotal = document.querySelector('.totalPrice')
+
+// Calculating Subtotal
+async function CalculateSubTotal() {
+
+    let response = await axios.get(`http://localhost:3000/basket`)
+
+    let products = response.data
+
+    // A variable to store TotalPrice
+    let totalPrice = 0
+
+    products.forEach(element => {
+        totalPrice +=  +element.price*element.count
+    });
+    
+    subTotal.innerHTML = `$${totalPrice}`
+
+}
+CalculateSubTotal()
+
+
+// Function for Close Button in whislist
+async function RemoveProduct(productId) {
+    
+    let response = await axios.get(`http://localhost:3000/basket/${productId}`)
+
+    let product = response.data
+
+    // If there is more than one just decrease the count and add changes to API
+    if (product.count > 1) {
+        product.count--
+        axios.put(`http://localhost:3000/pronia/${productId}`, product)
+        axios.put(`http://localhost:3000/basket/${productId}`, product)
+    }
+    // But if there is only one then make count 0 delete Item from basketAPI and set the change to proniaAPI
+    else{
+        product.count--
+        axios.put(`http://localhost:3000/pronia/${productId}`, product)
+        axios.delete(`http://localhost:3000/basket/${productId}`)
+    }
+
+}
+
 
 
