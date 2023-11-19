@@ -1,0 +1,310 @@
+main {
+    margin-left: 60px;
+}
+
+#slider {
+    height: 645px;
+}
+
+.slider {
+    position: absolute;
+    width: calc(100% - 60px);
+    height: 645px;
+}
+
+.slidesBox {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    transform: translateX(-0%);
+    transition: 0.5s;
+}
+
+.slide {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s;
+}
+
+.slide2 {
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/h4-rev-img2.jpg');
+
+}
+
+.slide1 {
+    background-image: url('https://thumbies.net/wp-content/uploads/2019/03/Example-3.png');
+
+}
+
+.slide3 {
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/h4-rev-img3.jpg');
+
+}
+
+.slide4 {
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/12/h4-rev-img4a.jpg');
+
+}
+
+.slidePagination {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.pag {
+    cursor: pointer;
+    font-size: 8px;
+    transition: 0.3s;
+
+    &:hover {
+        color: #333;
+    }
+
+}
+
+.slide.active {
+    transform: translate(-100%);
+}
+
+.pag.active {
+    color: #03d3d3;
+}
+
+.topRightText {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.topRightTitle {
+    font-weight: 500;
+}
+
+.bottomLeftText {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    color: #ffff4b;
+}
+
+.FilmTitle {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.awards {
+    margin-top: 50px;
+}
+
+.awards img {
+    margin-right: 20px;
+}
+
+.bottomRightBox {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+.svg-triangle polygon {
+    stroke: #fff;
+    stroke-width: 2;
+    transition: 0.2s;
+
+    &:hover {
+        fill: #fff;
+    }
+}
+
+.playFilm {
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 15px;
+    margin-right: 20px;
+    fill: transparent;
+
+    &:hover {
+        fill: #fff;
+
+    }
+}
+
+.svg-triangle {
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+}
+
+.getTickets {
+    font-size: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid grey;
+    padding: 12px 21px;
+    transition: .3s;
+
+    &:hover {
+        background-color: #222;
+    }
+
+}
+
+
+@media screen and (max-width:1150px) {
+    main {
+        margin-left: 0px;
+    }
+}
+
+/* Section 2 */
+
+#norway {
+    display: flex;
+    justify-content: center;
+    padding: 70px;
+
+}
+
+.norwayContainer {
+    width: 100%;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 32% 32% 32%;
+    grid-template-rows: 250px 250px;
+    grid-template-areas: 'flora fifth violin'
+        'strange berries song';
+
+}
+
+.norwayCard {
+    cursor: pointer;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.norwayTitleBox {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+}
+
+.norwayTitle{
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.norwayTitle span {
+    cursor: pointer;
+
+    &:hover {
+        color: #fd745b;
+    }
+}
+
+.flora {
+    grid-area: flora;
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/port-single-home-4-1.jpg');
+}
+
+.fifthDay {
+    grid-area: fifth;
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/port-single-home-4-2.jpg');
+}
+
+.violinTeacher {
+    grid-area: violin;
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/port-single-home-4-3.jpg');
+}
+
+.strangeLives {
+    grid-area: strange;
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/port-single-home-4-4.jpg');
+}
+
+.blueBerries {
+    grid-area: berries;
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/port-single-home-4-5.jpg');
+}
+
+.songOf {
+    grid-area: song;
+    background-image: url('https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/port-single-home-4-6.jpg');
+}
+
+.playButton{
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    &:hover .fillPolygon{
+        fill: white;
+    }
+}
+
+.playButton svg .triangle{
+    fill: transparent;
+    stroke: white;
+    stroke-width: 2px;
+}
+
+.playButton svg .fillPolygon{
+    fill: transparent;
+    transition: 0.3s;
+
+}
+
+.playButton svg circle{
+    fill: transparent;
+    stroke: white;
+    stroke-width: 2px;
+}
+
+
+@media screen and (max-width:1550px) {
+    .norwayContainer {
+        width: 100%;
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 47% 47%;
+        grid-template-rows: 300px 300px 300px;
+        grid-template-areas: 'flora fifth '
+            'violin strange'
+            'berries song';
+
+    }
+}
+
+@media screen and (max-width:1050px) {
+    .norwayContainer {
+        width: 100%;
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 100%;
+        grid-template-rows: 350px 350px 350px 350px 350px 350px;
+        grid-template-areas: 'flora'
+            'fifth'
+            'violin'
+            'strange'
+            'berries'
+            'song';
+
+    }
+}

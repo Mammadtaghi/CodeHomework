@@ -1,0 +1,61 @@
+#sideNav {
+    position: fixed;
+    top: 0;
+    left: -240px;
+    z-index: 2;
+    width: 300px;
+    height: 100vh;
+    background-color: black;
+    border-left: 1px solid #fff;
+    padding: 0px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: left 0.5s;
+}
+
+.navList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+}
+
+.navList li{
+    position: relative;
+}
+
+.navList li a {
+    font-size: 12px;
+    color: white;
+    transition: 0.3s;
+
+    &:hover {
+        color: #ff975a;
+    }
+}
+
+.subNav {
+    max-height: 0px;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+
+}
+
+@media screen and (max-width:1150px) {
+    #sideNav {
+        box-sizing: initial;
+        top: 0;
+        left: 0px;
+        z-index: 2;
+        width: 0%;
+        max-height: 0%;
+        border-left: 0px;
+        border-bottom: 1px solid white;
+        padding: 60px 35px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        transition: left 0.5s;
+        overflow: hidden;
+    }
+}
