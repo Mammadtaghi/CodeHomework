@@ -1,0 +1,43 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 1em;
+    height: 100px;
+
+    .logoBox{
+        width: 125px;
+        height: 23px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        img{
+            min-width: none;
+            max-height: none;
+            max-width: 123px;
+        }
+    }
+
+    .iconBox{
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+
+        i{
+            cursor: pointer;
+            font-size: 24px;
+            position: relative;
+
+            .yellowDot{
+                width: 10px;
+                height: 10px;
+                background-color: #e3a300;
+                border-radius: 5px;
+                position: absolute;
+                bottom: -5px;
+                right: -5px;
+            }
+        }
+    }
+}
