@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 import serviceRouter from "./src/Routers/serviceRouter.js";
 import productRouter from "./src/Routers/productRouter.js";
+import userRouter from "./src/Routers/userRouter.js";
 
 dotenv.config()
 
@@ -19,6 +20,7 @@ app.use(express.json())
 
 app.use("/", serviceRouter)
 app.use("/", productRouter)
+app.use("/", userRouter)
 
 
 mongoose.connect(URl).catch((err) => console.log(err))

@@ -165,17 +165,17 @@ function Navbar() {
               <li><NavLink>Simple</NavLink></li>
             </NavList>
             <NavList title={"PRE - BUILD PAGES"}>
-              <li><NavLink>About Us</NavLink></li>
-              <li><NavLink>Contact Us</NavLink></li>
-              <li><NavLink>FAQs</NavLink></li>
-              <li><NavLink>404 Page</NavLink></li>
-              <li><NavLink>Login</NavLink>/<NavLink>Register</NavLink></li>
+              <li><NavLink to={"/aboutus"}>About Us</NavLink></li>
+              <li><NavLink to={"/contactus"}>Contact Us</NavLink></li>
+              <li><NavLink to={"/faqs"}>FAQs</NavLink></li>
+              <li><NavLink to={"/error"}>404 Page</NavLink></li>
+              <li><NavLink to={"/login"}>Login</NavLink>/<NavLink to={"/register"}>Register</NavLink></li>
             </NavList>
             <NavList title={"ECOMERCE"}>
-              <li><NavLink>Shop</NavLink></li>
-              <li><NavLink>Cart</NavLink></li>
-              <li><NavLink>Checkout</NavLink></li>
-              <li><NavLink>My Acoount</NavLink></li>
+              <li><NavLink to={"/shop"}>Shop</NavLink></li>
+              <li><NavLink to={"/cart"}>Cart</NavLink></li>
+              <li><NavLink to={"/checkout"}>Checkout</NavLink></li>
+              <li><NavLink to={"/account"}>My Acoount</NavLink></li>
             </NavList>
           </SubNav>
         </li>
