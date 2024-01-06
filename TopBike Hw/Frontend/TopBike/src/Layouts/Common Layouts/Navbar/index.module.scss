@@ -68,11 +68,10 @@
             }
 
             .shopNav {
-                word-wrap: break-word;
                 display: flex;
-                column-gap: 3em;
+                column-gap: 1em;
                 transform: translate(-39%, 2em);
-
+                
                 .imgBox {
                     width: 203px;
                     height: 304.5px;
@@ -103,7 +102,7 @@
             }
 
             .blogsNav {
-                transform: translate(-43%, 2em);
+                transform: translate(-65%, 2em);
                 display: flex;
                 column-gap: 3em;
             }
@@ -132,7 +131,7 @@
                 }
 
                 .blogsNav {
-                    transform: translate(-43%, 1em);
+                    transform: translate(-65%, 1em);
                 }
             }
         }

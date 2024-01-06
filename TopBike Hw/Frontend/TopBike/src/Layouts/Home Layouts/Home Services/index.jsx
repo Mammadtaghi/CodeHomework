@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from "./index.module.scss";
 import HomeService from '../../../Components/Home Components/HomeService';
+import axios from 'axios';
+import useFetch from '../../../Hooks/useFetch';
+import { v4 } from 'uuid';
 
 function HomeServices() {
+
+  const [res, setRes] = useState([])
+
+  const response = useFetch("http://localhost:5000/services", setRes)
 
   return (
     <section id={style.HomeServices}>
       <div className={style.container}>
-        <HomeService info={"Only order from $230"} title={"FREE SHIPPING"} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/free-delivery.png?v=1613577961"} />
-        <HomeService info={"30 days free for return money"} title={"MONEY RETURN"} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/return-of-investment.png?v=1613577961"} />
-        <HomeService info={"Always ready to support"} title={"SUPPORT 24/7"} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/24-hours-support.png?v=1613577961"} />
+        { res && res.map(service=>(
+          <HomeService key={v4()} info={service.info} title={service.title} img={service.image.url} />
+        )) }
       </div>
     </section>
   )

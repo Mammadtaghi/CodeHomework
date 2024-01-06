@@ -80,7 +80,7 @@ function Navbar() {
     <nav id={style.nav}>
       <ul className={style.navList}>
         <li>
-          <NavLink className={style.navLink}>Home</NavLink>
+          <NavLink to={"/"} className={style.navLink}>Home</NavLink>
           <SubNav className={`${style.subNav} ${style.homeSubNav}`}>
             <HomeNav style={{ grid: "grid1" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home1_79702614-1d24-4067-9a69-2ee018b89d3b.jpg?v=1613577776"} title={"Home 1"} />
             <HomeNav style={{ grid: "grid2" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home2_411f599e-59e9-4ba9-8de2-3d92ad6282c6.jpg?v=1613577776"} title={"Home 2"} />
