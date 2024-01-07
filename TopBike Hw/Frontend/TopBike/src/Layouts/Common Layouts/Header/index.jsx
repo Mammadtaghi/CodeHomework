@@ -2,8 +2,12 @@ import React from 'react'
 import style from "./index.module.scss";
 import Navbar from '../Navbar';
 import { Link } from 'react-router-dom';
+import { useIsOpen } from '../../../Context/isOpenContext';
 
 function Header() {
+
+  const { isOpen, setIsOpen } = useIsOpen()
+
   return (
     <header className={style.header}>
       <div to={"/"} className={style.logoBox}>
@@ -12,7 +16,7 @@ function Header() {
       <Navbar />
       <div className={style.iconBox}>
         <i className="fa-solid fa-magnifying-glass"></i>
-        <i className="fa-regular fa-user"></i>
+        <i className="fa-regular fa-user" onClick={()=>setIsOpen(true)}></i>
         <i className="fa-regular fa-heart">
           <div className={style.yellowDot}></div>
         </i>
