@@ -12,7 +12,7 @@ export async function Register(req, res) {
         const user = await Users.findOne({ username: username })
 
         if (user) {
-            res.status(406).json({ message: `Already have ${username}!` })
+            res.status(406).json({ message: `We already have ${username} named user!` })
             return
         }
 
@@ -25,7 +25,14 @@ export async function Register(req, res) {
 
         await newUser.save()
 
-        res.status(200).send("User created!")
+        const token = jwt.sign({
+            username: newUser.username,
+            role: newUser.role,
+            basket: newUser.basket,
+            wishlist: newUser.wishlist,
+        })
+
+        res.status(200).send(token)
 
     } catch (error) {
         res.status(500).json({ message: "Server error" })

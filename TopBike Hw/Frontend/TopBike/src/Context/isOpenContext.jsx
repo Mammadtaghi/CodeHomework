@@ -4,7 +4,7 @@ const isOpenContext = createContext()
 
 export const IsOpenProvider =({children})=>{
 
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
 
     const data = {
         isOpen,
