@@ -6,16 +6,16 @@ const router = express.Router()
 
 // Get
 
-router.get("/services", GetAllServices)
+router.get("/", GetAllServices)
 
-router.get("/services/:id", GetServiceByID)
+router.get("/:id", GetServiceByID)
 
 // Post
 
-router.post("/services", CreateService)
+router.post("/", CreateService)
 
 // Delete
 
-router.delete("/services/:id", DeleteServiceByID)
+router.delete("/:id", DeleteServiceByID)
 
 export default router

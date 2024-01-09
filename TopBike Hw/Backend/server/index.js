@@ -18,8 +18,8 @@ app.use(cors())
 app.use(express.json())
 
 
-app.use("/", serviceRouter)
-app.use("/", productRouter)
+app.use("/services", serviceRouter)
+app.use("/products", productRouter)
 app.use("/", userRouter)
 
 

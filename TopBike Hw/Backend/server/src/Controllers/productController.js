@@ -39,6 +39,8 @@ export async function CreateProduct(req, res) {
     try {
         const { title, image, price, categories, discount } = req.body
 
+        console.log(typeof price);
+
         const result = await cloudinary.uploader.upload(image,{
             folder:"products"
         })

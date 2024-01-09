@@ -1,24 +1,26 @@
 import express from "express";
 import { CreateProduct, DeleteProductByID, GetAllProducts, GetProductByID, GetProductByTitle } from "./../Controllers/productController.js";
+import { CheckAdmin } from "../middleware/checkAdmin.js";
+import { CheckToken } from "../middleware/checkToken.js";
 
 const router = express.Router()
 
 
 // Get
 
-router.get("/products", GetAllProducts)
+router.get("/", GetAllProducts)
 
-router.get("/products/:id", GetProductByID)
+router.get("/:id", GetProductByID)
 
-router.get("/products/by-title", GetProductByTitle)
+router.get("/by-title", GetProductByTitle)
 
 // Post
 
-router.post("/products", CreateProduct)
+router.post("/", CheckToken, CheckAdmin, CreateProduct)
 
 // Delete
 
-router.delete("/products/:id", DeleteProductByID)
+router.delete("/:id", CheckToken, CheckAdmin, DeleteProductByID)
 
 
 export default router
