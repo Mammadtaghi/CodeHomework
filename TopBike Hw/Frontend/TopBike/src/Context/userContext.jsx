@@ -7,9 +7,20 @@ export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useLocalstorage("user", { username:"", role:"", basket:[], wishlist:[], token:"" })
 
+    function Logout() {
+        setUser({
+            username: "",
+            role: "",
+            basket: [],
+            wishlist: [],
+            token: "",
+          })
+    }
+
     const data = {
         user,
         setUser,
+        Logout,
     }
 
     return (

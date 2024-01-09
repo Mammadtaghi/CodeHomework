@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import style from "./index.module.scss";
+import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { jwtDecode } from "jwt-decode";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as yup from "yup";
-import axios from 'axios';
 import { useUser } from '../../../Context/userContext';
+import style from "./index.module.scss";
+import { useIsOpen } from '../../../Context/isOpenContext';
 
 const LoginRegisterSchema = yup.object().shape({
    username: yup.string().min(2, "Username must contain at least 2 characters!").required("This is required!"),
@@ -14,7 +16,12 @@ const LoginRegisterSchema = yup.object().shape({
 function LoginRegisterForm() {
 
    const [isLogin, setIsLogin] = useState(true)
+
    const { user, setUser } = useUser()
+
+   const { isOpen, setIsOpen } = useIsOpen()
+
+   const navigate = useNavigate()
 
    async function Sign(values) {
       try {
@@ -27,13 +34,14 @@ function LoginRegisterForm() {
          const decodedUser = jwtDecode(response)
 
          setUser({
-            username:decodedUser.username,
-            role:decodedUser.role,
-            basket:decodedUser.basket,
-            wishlist:decodedUser.wishlist,
+            username: decodedUser.username,
+            role: decodedUser.role,
+            basket: decodedUser.basket,
+            wishlist: decodedUser.wishlist,
             token: response
          })
 
+         setIsOpen(false)
       } catch (error) {
          console.log(error.response.data.message);
       }

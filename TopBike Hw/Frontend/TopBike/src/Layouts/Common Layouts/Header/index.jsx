@@ -1,12 +1,25 @@
-import React from 'react'
-import style from "./index.module.scss";
-import Navbar from '../Navbar';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useIsOpen } from '../../../Context/isOpenContext';
+import { useUser } from '../../../Context/userContext';
+import Navbar from '../Navbar';
+import style from "./index.module.scss";
 
 function Header() {
 
   const { isOpen, setIsOpen } = useIsOpen()
+
+  const navigate = useNavigate()
+
+  const { user } = useUser()
+
+  function UseUserIcon() {
+    if (user.role) {
+      navigate("/account")
+      return
+    }
+    setIsOpen(true)
+  }
 
   return (
     <header className={style.header}>
@@ -16,7 +29,9 @@ function Header() {
       <Navbar />
       <div className={style.iconBox}>
         <i className="fa-solid fa-magnifying-glass"></i>
-        <i className="fa-regular fa-user" onClick={()=>setIsOpen(true)}></i>
+        <i className="fa-regular fa-user" onClick={UseUserIcon}>
+          <div className={`${ user.role ? style.greenDot : style.redDot}`}></div>
+        </i>
         <i className="fa-regular fa-heart">
           <div className={style.yellowDot}></div>
         </i>

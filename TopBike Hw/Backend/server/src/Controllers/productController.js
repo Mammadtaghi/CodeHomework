@@ -9,7 +9,7 @@ export async function GetAllProducts(req, res) {
         const products = await Products.find()
         res.status(200).send(products)
     } catch (error) {
-        res.satus(500).json({ message: error })
+        res.status(500).json({ message: error })
     }
 }
 
@@ -19,7 +19,7 @@ export async function GetProductByID(req, res) {
         const product = await Products.findById(id)
         res.status(200).send(product)
     } catch (error) {
-        res.satus(500).json({ message: error })
+        res.status(500).json({ message: error })
     }
 }
 
@@ -29,7 +29,7 @@ export async function GetProductByTitle(req, res) {
         const product = await Products.findOne({ title: title })
         res.status(200).send(product)
     } catch (error) {
-        res.satus(500).json({ message: error })
+        res.status(500).json({ message: error })
     }
 }
 
@@ -57,7 +57,7 @@ export async function CreateProduct(req, res) {
         await newProduct.save()
         res.status(200).send("Product successfully created!")
     } catch (error) {
-        res.satus(500).json({ message: error })
+        res.status(500).json({ message: error })
     }
 }
 
@@ -69,6 +69,6 @@ export async function DeleteProductByID(req, res) {
         const product = await Products.findByIdAndDelete(id)
         res.status(200).send("Product successfully deleted!")
     } catch (error) {
-        res.satus(500).json({ message: error })
+        res.status(500).json({ message: error })
     }
 }
