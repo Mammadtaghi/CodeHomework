@@ -5,13 +5,14 @@ const productContext = createContext()
 
 export const ProductProvider = ({ children }) => {
 
-    const [Product, setProduct] = useState([])
+    const [Products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
     async function GetProducts() {
         try {
             const response = await axios("http://localhost:5000/products").then(res=>res.data)
-            setProduct(response)
+            console.log(response);
+            setProducts(response)
             setIsLoading(false)
         } catch (error) {
             console.log(error);
@@ -24,8 +25,8 @@ export const ProductProvider = ({ children }) => {
     
 
     const data = {
-        Product,
-        setProduct,
+        Products,
+        setProducts,
         isLoading
     }
 
