@@ -11,8 +11,6 @@ const productSchema = new Schema({
     price: { type: Number, required: true },
     categories: [{ type: String, required: true }],
     discount: { type: Number, default: 0 },
-    new: { type: Boolean, default: true },
-    createdAt: { type: Date, default: Date.now},
 });
 
 export const Products = mongoose.model("products", productSchema)

@@ -9,28 +9,29 @@ export async function Register(req, res) {
     try {
         const { username, password } = req.body
 
-        const user = await Users.findOne({ username: username })
 
-        if (user) {
-            res.status(406).json({ message: `We already have ${username} named user!` })
-            return
-        }
+        // const user = await Users.findOne({ username: username })
+
+        // if (user.username) {
+        //     res.status(406).json({ message: `We already have ${username} named user!` })
+        //     return
+        // }
 
         const hashedPass = await bcrypt.hash(password, 10)
-
+                
         const newUser = await Users.create({
             username: username,
             password: hashedPass,
         })
 
         await newUser.save()
-
+        
         const token = jwt.sign({
             username: newUser.username,
             role: newUser.role,
             basket: newUser.basket,
             wishlist: newUser.wishlist,
-        })
+        }, "AlbiKey", { expiresIn: "1h" })
 
         res.status(200).send(token)
 
@@ -71,6 +72,44 @@ export async function GetAllUsers(req, res) {
         const users = await Users.find()
 
         res.status(200).send(users)
+    } catch (error) {
+        res.status(500).json({ message: "Server error" })
+    }
+}
+
+export async function GetUserByID(req, res) {
+    try {
+        const { id } = req.params
+
+        const user = await Users.findById(id)
+
+        if (!user.username) {
+            res.status(404).json({ message: "User not found!" })
+            return
+        }
+
+        res.status(200).send(user)
+    } catch (error) {
+        res.status(500).json({ message: "Server error" })
+    }
+}
+
+// Delete
+
+export async function DeleteUserByID(req, res) {
+    try {
+        const { id } = req.params
+
+        const findUser = await Users.findById(id)
+
+        if (!findUser.username) {
+            res.status(404).json({ message: "User not found!" })
+            return
+        }
+
+        const deletedUser = await Users.findByIdAndDelete(id)
+
+        res.status(200).send(`${deletedUser.username} deleted!`)
     } catch (error) {
         res.status(500).json({ message: "Server error" })
     }

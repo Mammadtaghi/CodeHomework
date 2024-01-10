@@ -1,5 +1,5 @@
 import express from "express";
-import { GetAllUsers, Login, Register } from "./../Controllers/userController.js";
+import { DeleteUserByID, GetAllUsers, GetUserByID, Login, Register } from "./../Controllers/userController.js";
 import { CheckToken } from "../middleware/checkToken.js";
 import { CheckAdmin } from "../middleware/checkAdmin.js";
 import { CheckSuperAdmin } from "../middleware/checkSuperAdmin.js";
@@ -18,6 +18,12 @@ router.post("/register", Register)
 router.get("/test", CheckToken, CheckAdmin, CheckSuperAdmin)
 
 router.get("/users", CheckToken, GetAllUsers)
+
+router.get("/users/:id", CheckToken, GetUserByID)
+
+// Delete
+
+router.delete("/users/:id", CheckToken, CheckAdmin, DeleteUserByID)
 
 
 export default router

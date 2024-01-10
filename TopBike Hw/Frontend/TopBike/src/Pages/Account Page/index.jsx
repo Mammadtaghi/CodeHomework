@@ -11,7 +11,7 @@ function Account() {
   return (
     <main id={style.Account}>
       <UserInfo />
-      <NewProductForm/>
+      {user.role.includes("admin") ? <NewProductForm /> : null}
     </main>
   )
 }

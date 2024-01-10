@@ -39,7 +39,7 @@ export async function CreateProduct(req, res) {
     try {
         const { title, image, price, categories, discount } = req.body
 
-        console.log(typeof price);
+        console.log(image);
 
         const result = await cloudinary.uploader.upload(image,{
             folder:"products"
@@ -51,15 +51,16 @@ export async function CreateProduct(req, res) {
                 public_id: result.public_id,
                 url: result.secure_url
             },
-            price:price,
+            price:+price,
             categories:categories,
-            discount:discount
+            discount:+discount
         })
 
         await newProduct.save()
+
         res.status(200).send("Product successfully created!")
     } catch (error) {
-        res.status(500).json({ message: error })
+        res.status(500).json({ message: "Something went wrong!" })
     }
 }
 
