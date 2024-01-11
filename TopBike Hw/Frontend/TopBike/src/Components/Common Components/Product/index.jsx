@@ -7,6 +7,11 @@ function Product({ id, image, title, price, discount }) {
     <div id={style.Product}>
       <div className={style.imgBox}>
         <img src={image} alt={title} />
+        <div className={style.iconsContainer}>
+          <div className={style.iconBox}><i className='fa-regular fa-heart'></i></div>
+          <div className={style.iconBox}><i className='fa-solid fa-shopping-bag'></i></div>
+          <div className={style.iconBox}><i className='fa-solid fa-magnifying-glass'></i></div>
+        </div>
         { discount ? <div className={style.discountBox}>-{discount}%</div> : null}
       </div>
       <div className={style.textBox}>

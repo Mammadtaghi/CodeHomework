@@ -13,7 +13,7 @@ function NewProducts() {
       <h1 className={style.title}>New Products</h1>
       <div className={style.Container}>
         <div className={style.gridProduct}>
-          {Products && Products.map((product, index) => (
+          {isLoading ? <span className={style.loader}></span> : Products && Products.map((product, index) => (
             <div key={v4()} style={{ gridArea: `grid${index}` }}>
               <Product id={product._id} image={product.image.url} title={product.title} price={product.price} discount={product.discount} />
             </div>

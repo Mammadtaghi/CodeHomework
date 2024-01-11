@@ -1,9 +1,14 @@
 .header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 3;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 25px 1em;
     height: 100px;
+    background-color: #fff;
 
     .logoBox{
         width: 125px;
