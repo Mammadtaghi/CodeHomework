@@ -53,9 +53,11 @@ export const UserProvider = ({ children }) => {
     }
 
     function isInWishlist(id) {
-        let WishlistCopy = [...user.wishlist]
-        const isIn = WishlistCopy.find(x => x._id === id)
-        if (isIn) {
+        console.log(id);
+        const WishlistCopy = [...user.wishlist]
+        const isIn = WishlistCopy.findIndex(x => x._id === id)
+        console.log(isIn);
+        if (isIn !== -1) {
             return true
         }
         else {
