@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useUser } from '../../../Context/userContext';
 import style from "./index.module.scss";
 
@@ -6,11 +6,11 @@ function Product({ props }) {
 
   const { AddToWishlist, isInWishlist } = useUser()
 
+  const [isIn, setisIn] = useState(isInWishlist(props._id))
+
   function handleAdd(props) {
     AddToWishlist(props)
   }
-
-  let isIn = isInWishlist(props._id)
 
   return (
     <div id={style.Product}>

@@ -27,8 +27,8 @@ router.delete("/users/:id", CheckToken, CheckAdmin, DeleteUserByID)
 
 // Put
 
-router.put("/users", CheckToken, UpdateUserWishlistByUsername)
+router.put("/users/wishlist", CheckToken, UpdateUserWishlistByUsername)
 
-router.put("/users/:id", CheckToken, UpdateUserWishlistByID)
+router.put("/users/wishlist/:id", CheckToken, UpdateUserWishlistByID)
 
 export default router

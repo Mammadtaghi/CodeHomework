@@ -12,15 +12,15 @@ export const UserProvider = ({ children }) => {
         try {
             const response = await axios({
                 method: "put",
-                url: `http://localhost:5000/users`,
+                url: `http://localhost:5000/users/wishlist`,
                 headers: {
                     Authorization: `Bearer ${user.token}`
                 },
-                data:{
-                    wishlist:wishlist,
-                    username:user.username
+                data: {
+                    wishlist: wishlist,
+                    username: user.username
                 }
-            }).then(res=>res.data)
+            }).then(res => res.data)
 
             console.log(response);
 
@@ -33,14 +33,23 @@ export const UserProvider = ({ children }) => {
         let WishlistCopy = [...user.wishlist]
         const itemIndex = WishlistCopy.findIndex(x => x._id === item._id)
         if (itemIndex === -1) {
-            WishlistCopy.push(item)
+            WishlistCopy.push({
+                _id: item._id,
+                imageURL: item.image.url,
+                title: item.title,
+                price: item.price,
+                categories: item.categories,
+                discount: item.discount
+            })
             user.wishlist = WishlistCopy
-            UpdateWishlist(WishlistCopy)
+            console.log(user.wishlist);
+            UpdateWishlist(user.wishlist)
             return
         }
         WishlistCopy = WishlistCopy.filter(x => x._id !== item._id)
         user.wishlist = WishlistCopy
-        UpdateWishlist(user.wihslist)
+        console.log(user.wishlist);
+        UpdateWishlist(user.wihslist ? user.wihslist : [])
     }
 
     function isInWishlist(id) {
