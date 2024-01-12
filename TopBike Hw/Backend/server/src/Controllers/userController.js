@@ -9,23 +9,22 @@ export async function Register(req, res) {
     try {
         const { username, password } = req.body
 
+        const user = await Users.findOne({ username: username })
 
-        // const user = await Users.findOne({ username: username })
-
-        // if (user.username) {
-        //     res.status(406).json({ message: `We already have ${username} named user!` })
-        //     return
-        // }
+        if (user.username) {
+            res.status(406).json({ message: `We already have ${username} named user!` })
+            return
+        }
 
         const hashedPass = await bcrypt.hash(password, 10)
-                
+
         const newUser = await Users.create({
             username: username,
             password: hashedPass,
         })
 
         await newUser.save()
-        
+
         const token = jwt.sign({
             username: newUser.username,
             role: newUser.role,
@@ -110,6 +109,47 @@ export async function DeleteUserByID(req, res) {
         const deletedUser = await Users.findByIdAndDelete(id)
 
         res.status(200).send(`${deletedUser.username} deleted!`)
+    } catch (error) {
+        res.status(500).json({ message: "Server error" })
+    }
+}
+
+// Put
+
+export async function UpdateUserWishlistByID(req, res) {
+    try {
+        const { id } = req.params
+        const { wishlist } = req.body
+
+        const findUser = await Users.findById(id)
+
+        if (!findUser.username) {
+            res.status(404).json({ message: "User not found!" })
+            return
+        }
+
+        const updatedUser = await Users.findByIdAndUpdate(id,{wishlist:wishlist})
+
+        res.status(200).send(`${updatedUser.username}'s wishlist updated!`)
+    } catch (error) {
+        res.status(500).json({ message: "Server error" })
+    }
+}
+
+export async function UpdateUserWishlistByUsername(req, res) {
+    try {
+        const { username, wishlist } = req.body
+
+        const findUser = await Users.findOne({username:username})
+
+        if (!findUser.role) {
+            res.status(404).json({ message: "User not found!" })
+            return
+        }
+
+        const updatedUser = await Users.findOneAndUpdate({username:username},{wishlist:wishlist})
+
+        res.status(200).send(`${updatedUser.username}'s wishlist updated!`)
     } catch (error) {
         res.status(500).json({ message: "Server error" })
     }
