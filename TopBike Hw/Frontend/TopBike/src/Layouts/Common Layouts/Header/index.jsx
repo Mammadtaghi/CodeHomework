@@ -21,6 +21,22 @@ function Header() {
     setIsOpen(true)
   }
 
+  function UseHeartIcon() {
+    if (user.role) {
+      navigate("/wishlist")
+      return
+    }
+    setIsOpen(true)
+  }
+
+  function UseShoppingIcon() {
+    if (user.role) {
+      navigate("/cart")
+      return
+    }
+    setIsOpen(true)
+  }
+
   return (
     <header className={style.header}>
       <div to={"/"} className={style.logoBox}>
@@ -32,10 +48,10 @@ function Header() {
         <i className="fa-regular fa-user" onClick={UseUserIcon}>
           <div className={`${ user.role ? style.greenDot : style.redDot}`}></div>
         </i>
-        <i className="fa-regular fa-heart">
+        <i className="fa-regular fa-heart" onClick={UseHeartIcon}>
           <div className={style.yellowDot}></div>
         </i>
-        <i className="fa-solid fa-bag-shopping">
+        <i className="fa-solid fa-bag-shopping" onClick={UseShoppingIcon}>
           <div className={style.yellowDot}></div>
         </i>
       </div>

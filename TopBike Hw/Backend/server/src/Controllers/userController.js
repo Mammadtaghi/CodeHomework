@@ -116,6 +116,54 @@ export async function DeleteUserByID(req, res) {
 
 // Put
 
+export async function PromoteAsAdminByUsername(req, res) {
+    try {
+        const { username } = req.body
+
+        const findUser = await Users.findOne({ username: username })
+
+        if (!findUser.role) {
+            res.status(404).json({ message: "User not found!" })
+            return
+        }
+
+        if (findUser.role === "admin") {
+            res.status(404).json({ message: `${findUser.username} is already an Admin!` })
+            return
+        }
+
+        const updatedUser = await Users.findOneAndUpdate({ username: username }, { role: "admin" })
+
+        res.status(200).send(`${updatedUser.username} promoted as Admin!`)
+    } catch (error) {
+        res.status(500).json({ message: "Server error" })
+    }
+}
+
+export async function DemoteUserByUsername(req, res) {
+    try {
+        const { username } = req.body
+
+        const findUser = await Users.findOne({ username: username })
+
+        if (!findUser.role) {
+            res.status(404).json({ message: "User not found!" })
+            return
+        }
+
+        if (findUser.role === "User") {
+            res.status(404).json({ message: `${findUser.username} is not an Admin!` })
+            return
+        }
+
+        const updatedUser = await Users.findOneAndUpdate({ username: username }, { role: "user" })
+
+        res.status(200).send(`${updatedUser.username} demoted!`)
+    } catch (error) {
+        res.status(500).json({ message: "Server error" })
+    }
+}
+
 export async function UpdateUserWishlistByID(req, res) {
     try {
         const { id } = req.params
@@ -128,7 +176,7 @@ export async function UpdateUserWishlistByID(req, res) {
             return
         }
 
-        const updatedUser = await Users.findByIdAndUpdate(id,{wishlist:wishlist})
+        const updatedUser = await Users.findByIdAndUpdate(id, { wishlist: wishlist })
 
         res.status(200).send(`${updatedUser.username}'s wishlist updated!`)
     } catch (error) {
@@ -140,14 +188,14 @@ export async function UpdateUserWishlistByUsername(req, res) {
     try {
         const { username, wishlist } = req.body
 
-        const findUser = await Users.findOne({username:username})
+        const findUser = await Users.findOne({ username: username })
 
         if (!findUser.role) {
             res.status(404).json({ message: "User not found!" })
             return
         }
 
-        const updatedUser = await Users.findOneAndUpdate({username:username},{wishlist:wishlist})
+        const updatedUser = await Users.findOneAndUpdate({ username: username }, { wishlist: wishlist })
 
         res.status(200).send(`${updatedUser.username}'s wishlist updated!`)
     } catch (error) {

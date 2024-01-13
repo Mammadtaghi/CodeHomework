@@ -85,11 +85,11 @@ function Navbar() {
         <li>
           <NavLink to={"/"} className={style.navLink}>Home</NavLink>
           <SubNav className={`${style.subNav} ${style.homeSubNav}`}>
-            <HomeNav style={{ grid: "grid1" }} image={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home1_79702614-1d24-4067-9a69-2ee018b89d3b.jpg?v=1613577776"} title={"Home 1"} />
-            <HomeNav style={{ grid: "grid2" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home2_411f599e-59e9-4ba9-8de2-3d92ad6282c6.jpg?v=1613577776"} title={"Home 2"} />
-            <HomeNav style={{ grid: "grid3" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home3_8ef816a2-0531-4578-a497-139164f99d10.jpg?v=1613577776"} title={"Home 3"} />
-            <HomeNav style={{ grid: "grid4" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home4_3c5e0131-1366-4c93-a41b-9f35d04f4449.jpg?v=1613577776"} title={"Home 4"} />
-            <HomeNav style={{ grid: "grid5" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home5_6e4f660a-7d2a-4559-869e-761708fefc9a.jpg?v=1613577776"} title={"Home 5"} />
+            <HomeNav style={{ grid: "grid1" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home1_79702614-1d24-4067-9a69-2ee018b89d3b.jpg"} title={"Home 1"} />
+            <HomeNav style={{ grid: "grid2" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home2_411f599e-59e9-4ba9-8de2-3d92ad6282c6.jpg"} title={"Home 2"} />
+            <HomeNav style={{ grid: "grid3" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home3_8ef816a2-0531-4578-a497-139164f99d10.jpg"} title={"Home 3"} />
+            <HomeNav style={{ grid: "grid4" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home4_3c5e0131-1366-4c93-a41b-9f35d04f4449.jpg"} title={"Home 4"} />
+            <HomeNav style={{ grid: "grid5" }} img={"https://topbike-store-demo.myshopify.com/cdn/shop/files/home5_6e4f660a-7d2a-4559-869e-761708fefc9a.jpg"} title={"Home 5"} />
           </SubNav>
         </li>
         <li>
