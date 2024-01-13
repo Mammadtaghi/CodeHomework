@@ -6,8 +6,6 @@ function usePagination(incomeData, incomeCurrentPage = 1, incomeDataPerPage = 2)
   const [currentPage, setCurrentPage] = useState(incomeCurrentPage)
   const [dataPerPage, setDataPerPage] = useState(incomeDataPerPage)
 
-  console.log(data);
-
   const lastPageIndex = Math.ceil(data.length / dataPerPage)
 
   let pageNumbers = []

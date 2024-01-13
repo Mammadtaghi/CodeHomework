@@ -1,33 +1,12 @@
-#Error{
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #aaaaaa;
+#Wishlist {
+    padding: 4em 2em;
 
-    .status{
-        font-size: 100px;
-        margin-bottom: 20px;
-    }
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-    .notFound{
-        font-size: 30px;
-    }
-
-    .notExits{
-        font-weight: 500;
-        font-size: 16px;
-        margin-bottom: 1em;
-    }
-
-    .return{
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 1.5em;
-    }
-
-    .homePage{
-        cursor: pointer;
-        color: #f3b300;
+        
     }
 }

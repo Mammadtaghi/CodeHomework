@@ -6,7 +6,7 @@ const userContext = createContext()
 
 export const UserProvider = ({ children }) => {
 
-    const [user, setUser] = useLocalstorage("user", { username: "", role: "", basket: [], wishlist: [], token: "" })
+    const [user, setUser, ManualUpdate] = useLocalstorage("user", { username: "", role: "", basket: [], wishlist: [], token: "" })
 
     async function UpdateWishlist(wishlist) {
         try {
@@ -35,19 +35,24 @@ export const UserProvider = ({ children }) => {
         if (itemIndex === -1) {
             WishlistCopy.push({
                 _id: item._id,
-                imageURL: item.image.url,
+                image: {
+                    url: item.image.url,
+                    public_id: item.image.public_id
+                },
                 title: item.title,
                 price: item.price,
                 categories: item.categories,
                 discount: item.discount
             })
             user.wishlist = WishlistCopy
+            ManualUpdate()
             console.log(user.wishlist);
             UpdateWishlist(user.wishlist)
             return
         }
         WishlistCopy = WishlistCopy.filter(x => x._id !== item._id)
         user.wishlist = WishlistCopy
+        ManualUpdate()
         console.log(user.wishlist);
         UpdateWishlist(user.wihslist ? user.wihslist : [])
     }

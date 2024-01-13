@@ -22,56 +22,56 @@ const SubNav = styled.div`
     transition: 0.4s ease-out;
   `
 
-const FakeAPI = [
-  {
-    image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 40,
-    discount: 15,
-  },
-  {
-    image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 20,
-    discount: 10,
-  },
-  {
-    image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 100,
-    discount: 4,
-  },
-  {
-    image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 70,
-    discount: 8,
-  },
-  {
-    image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 60,
-    discount: 3,
-  },
-  {
-    image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 90,
-    discount: 0,
-  },
-  {
-    image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 110,
-    discount: 0,
-  },
-  {
-    image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
-    title: "Bike Parts",
-    price: 120,
-    discount: 0,
-  },
-]
+// const FakeAPI = [
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 40,
+//     discount: 15,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 20,
+//     discount: 10,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 100,
+//     discount: 4,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 70,
+//     discount: 8,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 60,
+//     discount: 3,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 90,
+//     discount: 0,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 110,
+//     discount: 0,
+//   },
+//   {
+//     image: "https://topbike-store-demo.myshopify.com/cdn/shop/products/product11.jpg?v=1608083590",
+//     title: "Bike Parts",
+//     price: 120,
+//     discount: 0,
+//   },
+// ]
 
 function Navbar() {
 
