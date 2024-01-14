@@ -46,10 +46,10 @@ function Header() {
       <div className={style.iconBox}>
         <i className="fa-solid fa-magnifying-glass"></i>
         <i className="fa-regular fa-user" onClick={UseUserIcon}>
-          <div className={`${ user.role ? style.greenDot : style.redDot}`}></div>
+          <div className={`${user.role ? style.greenDot : style.redDot}`}></div>
         </i>
         <i className="fa-regular fa-heart" onClick={UseHeartIcon}>
-          <div className={style.yellowDot}></div>
+          <div className={(user.role && user.wishlist.length > 0) ? style.greenDot : style.yellowDot}></div>
         </i>
         <i className="fa-solid fa-bag-shopping" onClick={UseShoppingIcon}>
           <div className={style.yellowDot}></div>

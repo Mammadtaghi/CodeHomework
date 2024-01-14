@@ -77,7 +77,7 @@ function Navbar() {
 
   const { Products } = useProducts()
 
-  const [PageData, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex] = usePagination([...Products], 1, 3)
+  const [PageData, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex] = usePagination([...Products], 3, 1 )
 
   return (
     <nav id={style.nav}>

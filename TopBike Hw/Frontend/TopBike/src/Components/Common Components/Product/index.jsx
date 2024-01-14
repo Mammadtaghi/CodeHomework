@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import { useUser } from '../../../Context/userContext';
 import style from "./index.module.scss";
 import { useIsOpen } from '../../../Context/isOpenContext';
+import { useNavigate } from 'react-router-dom';
 
 function Product({ props }) {
 
-  const { user } = useUser()
-
   const { setIsOpen } = useIsOpen()
 
-  const { AddToWishlist, isInWishlist } = useUser()
+  const { user, AddToWishlist, isInWishlist } = useUser()
+
+  const navigate = useNavigate()
 
   const [isIn, setisIn] = useState(isInWishlist(props._id))
 
   function handleAdd() {
     if (user.role) {
       AddToWishlist(props)
+      navigate("/")
       setisIn(isInWishlist(props._id));
       return
     }
