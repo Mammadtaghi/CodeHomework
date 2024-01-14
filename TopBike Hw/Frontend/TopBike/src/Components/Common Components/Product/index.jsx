@@ -3,6 +3,9 @@ import { useUser } from '../../../Context/userContext';
 import style from "./index.module.scss";
 import { useIsOpen } from '../../../Context/isOpenContext';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify =()=> toast("Wishlist Updated!")
 
 function Product({ props }) {
 
@@ -19,6 +22,7 @@ function Product({ props }) {
       AddToWishlist(props)
       navigate("/")
       setisIn(isInWishlist(props._id));
+      notify()
       return
     }
     setIsOpen(true)
@@ -26,6 +30,7 @@ function Product({ props }) {
 
   return (
     <div id={style.Product}>
+      <Toaster />
       <div className={style.imgBox}>
         <img src={props.image.url} alt={props.title} />
         <div className={style.iconModal}>
